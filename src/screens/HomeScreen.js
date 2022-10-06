@@ -14,7 +14,7 @@ import DropdownComponent from "../components/dropdown";
 import Input from "../components/input";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Screen from "./Screen";
-import {WIDTH} from "../consts/GlobalConsts";
+import {COLOR, WIDTH} from "../consts/GlobalConsts";
 
 const HomeScreen = ({navigation}) => {
     const [fromPrice, SetFromPrice] = useState("1000");
@@ -93,7 +93,7 @@ const HomeScreen = ({navigation}) => {
 
                         <View style={styles.headerCompStyle}>
                             <EvilIcons name="search" size={25}/>
-                            <Ionicons name="add-circle-sharp" size={25} color={"#FD4100"}/>
+                            <Ionicons name="add-circle-sharp" size={25} color={COLOR.ORANGE}/>
 
                             <TouchableOpacity style={styles.wrap}>
                                 <View style={styles.menuStyle}></View>
@@ -159,7 +159,7 @@ const HomeScreen = ({navigation}) => {
             >
                 <TouchableOpacity
                     style={{
-                        backgroundColor: "#FD4100",
+                        backgroundColor: COLOR.ORANGE,
                         width: 200,
                         height: 50,
                         alignItems: "center",
