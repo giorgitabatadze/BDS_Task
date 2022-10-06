@@ -17,8 +17,8 @@ import Screen from "./Screen";
 import {COLOR, WIDTH} from "../consts/GlobalConsts";
 
 const HomeScreen = ({navigation}) => {
-    const [fromPrice, SetFromPrice] = useState("1000");
-    const [toPrice, SetToPrice] = useState("1000");
+    const [fromPrice, SetFromPrice] = useState();
+    const [toPrice, SetToPrice] = useState();
     const [data12, setData] = useState();
     const [dataSource, setDataSource] = useState([]);
 
@@ -27,7 +27,7 @@ const HomeScreen = ({navigation}) => {
         {key: 1, name: "ქირავდება"},
     ];
 
-    const [value, setValue] = useState(null);
+    const [id, setId] = useState(null);
     const [chosenCarName, setChosenCarName] = useState(null);
     const [rent, setRent] = useState(null);
 
@@ -64,7 +64,7 @@ const HomeScreen = ({navigation}) => {
         axios
 
             .get(
-                `https://api2.myauto.ge/ka/products?TypeID=${0}&ForRent=${rent}&Mans=${value}&PriceFrom=${fromPrice}&priceTo=${toPrice}`
+                `https://api2.myauto.ge/ka/products?TypeID=${0}&ForRent=${rent}&Mans=${id}&PriceFrom=${fromPrice}&priceTo=${toPrice}`
             )
             .then(function (response) {
                 const resp = JSON.stringify(response.data);
@@ -110,6 +110,7 @@ const HomeScreen = ({navigation}) => {
                             onChangeText={(text) => SetFromPrice(text)}
                             conteinerStyle={styles.conteiner}
                             inputStyle={styles.myInputStyle}
+                            value={fromPrice}
                         />
 
                         <Input
@@ -124,9 +125,9 @@ const HomeScreen = ({navigation}) => {
                             data={forRent}
                             labelField="name"
                             valueField="key"
+                            value1={rent}
                             style={styles.dropDownStyle}
                             onChange={(item) => {
-                                console.log("item-", item);
                                 setRent(item.key);
                             }}
                         />
@@ -137,10 +138,10 @@ const HomeScreen = ({navigation}) => {
                             data={carMarks}
                             labelField="name"
                             valueField="id"
+                            // value1={chosenCarName}
                             onChange={(item) => {
-                                console.log("item-", item);
                                 setChosenCarName(item.name);
-                                setValue(item.id);
+                                setId(item.id);
                             }}
                         />
                     </View>
