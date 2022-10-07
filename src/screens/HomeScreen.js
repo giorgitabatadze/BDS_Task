@@ -64,7 +64,7 @@ const HomeScreen = ({navigation}) => {
         axios
 
             .get(
-                `https://api2.myauto.ge/ka/products?TypeID=${0}&ForRent=${rent}&Mans=${id}&PriceFrom=${fromPrice}&priceTo=${toPrice}`
+                `https://api2.myauto.ge/ka/products?TypeID=${0}&ForRent=${rent}&Mans=${id}&PriceFrom=${fromPrice}&PriceTo=${toPrice}`
             )
             .then(function (response) {
                 const resp = JSON.stringify(response.data);
