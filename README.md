@@ -1,2 +1,4 @@
-# BDS
-input and dropdown components 
+# BDS_Task 
+
+* create components 
+* Parse json , take and implement data 
